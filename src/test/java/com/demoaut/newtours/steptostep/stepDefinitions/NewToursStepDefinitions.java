@@ -1,5 +1,10 @@
 package com.demoaut.newtours.steptostep.stepDefinitions;
 
+/**
+ * 
+ * @author Juan Esteban Lopez Giraldo
+ *
+ */
 import org.openqa.selenium.WebDriver;
 
 import com.demoaut.newtours.steptostep.questions.IsVisibleReservationPage;
@@ -25,12 +30,15 @@ public class NewToursStepDefinitions {
 	@Managed(driver = "chrome")
 	private WebDriver hisBrowser;
 	
+	//Se instancia el actor.
 	private Actor Esteban = Actor.named("Esteban");
 	
+	//Variable privada de tipo NewToursPage
 	private NewToursPage newToursPage;
 	
 	LogginNewToursModel logginNewToursModel;
 	
+	//Lo primero que se ejecuta al correr el test
 	@Before
 	public void setUp() 
 	{
@@ -39,29 +47,22 @@ public class NewToursStepDefinitions {
 		Esteban.can(BrowseTheWeb.with(hisBrowser));		
 	}
 
-	//Esteban.wasAbleTo("");//Como es pasado por el was, se usan los metodos given
-	//Esteban.attemptsTo(tasks); //intenta; por lo tanto son en presente, metodos when
-	
+	//Se abre el navegador en la pagina de newTours.
 	@Given("^that Esteban is in the loggin page of New Tours$")
 	public void iAmInTheLogginPageOfNewTours()  {
-	    //Precondiciones:Estar en New Tours
-		//OpenTheBrowser open = new OpenTheBrowser();
-		//se crea una instancia de la clase debido a que el metodo wasAbleTo
-		//recibe objetos y no clase.
-		//Se manda el metodo estatico de esa clase que es el que instancia el objeto
-		Esteban.wasAbleTo(OpenTheBrowser.on(newToursPage));
+	    Esteban.wasAbleTo(OpenTheBrowser.on(newToursPage));
 	    
 	}
 	
+	//Hace loggin con usuario y contrasena
 	@When("^Esteban entry with a user and password$")
 	public void iEntryWithUserMancoHotmailComAndPasswordSophos(List<LogginNewToursModel> Loggeo){
-	    // Condiciones:Loggearse en la pagina 
-		Esteban.attemptsTo(fillLoginPage.doLoggin(Loggeo.get(0)));		
+	    Esteban.attemptsTo(fillLoginPage.doLoggin(Loggeo.get(0)));		
 	}
 
+	//se valida que este en la pagina de reserva.
 	@Then("^Esteban will be in the welcome page$")
 	public void iWillBeInTheWelcomePage() throws AssertionError{
-	    // Consecuencias:Aparecera la pagina de reserva 
 	    Esteban.should(seeThat(IsVisibleReservationPage.page()));	    
 	}
 

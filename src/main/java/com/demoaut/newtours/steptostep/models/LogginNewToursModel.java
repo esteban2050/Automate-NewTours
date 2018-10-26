@@ -1,5 +1,11 @@
 package com.demoaut.newtours.steptostep.models;
 
+/**
+ *  Modulo del loggin.
+ * @author Juan Esteban Lopez Giraldo b
+ *
+ */
+
 public class LogginNewToursModel {
 
 	private String username;

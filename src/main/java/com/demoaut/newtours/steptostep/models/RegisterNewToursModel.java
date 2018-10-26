@@ -1,5 +1,10 @@
 package com.demoaut.newtours.steptostep.models;
 
+/**
+ *  Modelo del modulo de registro.
+ * @author Juan Esteban Lopez Giraldo b
+ *
+ */
 public class RegisterNewToursModel {
 	
 	private String firtsName;

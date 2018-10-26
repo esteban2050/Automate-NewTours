@@ -1,5 +1,10 @@
 package com.demoaut.newtours.steptostep.stepDefinitions;
 
+/**
+ * 
+ * @author Juan Esteban Lopez Giraldo
+ *
+ */
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 import java.util.List;
@@ -31,6 +36,7 @@ public class NewToursRegisterStepDefinitions {
 	
 	private NewToursPage newToursPage;
 	
+	//Lo primero que se ejecuta al correr el test
 	@Before
 	public void setUp() 
 	{
@@ -38,19 +44,22 @@ public class NewToursRegisterStepDefinitions {
 		Esteban.can(BrowseTheWeb.with(hisBrowser));
 		
 	}
+	
+	//Abre la pagina y se va a la ventana de registrarse.
 	@Given("^that esteban is in the register page$")
 	public void thatEstebanIsInTheRegisterPage() {
 	    //Se abre el navegador en la pagina de new tours
 		Esteban.wasAbleTo(OpenTheBrowser.on(newToursPage),OpenRegisterPage.on());
 	}
 
-
+	//Llena los campos de la ventana de registro.
 	@When("^esteban does the register$")
 	public void estebanDoesTheRegister(List<RegisterNewToursModel> Information) {
 		Esteban.attemptsTo(fillRegisterPage.doRegister(Information.get(0)));
 			
 	}
-
+	
+	//Se valida que se halla registrado correctamente.
 	@Then("^esteban will be in the successful page$")
 	public void estebanWillBeInTheSuccessfulPage() {
 		Esteban.should(seeThat(IsVisibleTextAferTheRegister.isVisibleButton())); 

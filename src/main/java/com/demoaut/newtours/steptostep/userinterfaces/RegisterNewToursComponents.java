@@ -3,7 +3,9 @@ package com.demoaut.newtours.steptostep.userinterfaces;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
-public class RegisterNewToursComponents {	
+public class RegisterNewToursComponents {
+	
+	//Se mapean los target de la pagina de registro.
 	public static final Target FIRSTNAME = Target.the("The firts name input").located(By.name("firstName"));
 	public static final Target LASTNAME = Target.the("The last name input").located(By.name("lastName"));
 	public static final Target PHONE = Target.the("The phone input").located(By.name("phone"));

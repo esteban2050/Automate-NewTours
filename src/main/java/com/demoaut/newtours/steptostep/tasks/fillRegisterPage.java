@@ -1,5 +1,10 @@
 package com.demoaut.newtours.steptostep.tasks;
 
+/**
+ * 
+ * @author Juan Esteban Lopez Giraldo b
+ *
+ */
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 import com.demoaut.newtours.steptostep.models.RegisterNewToursModel;
@@ -13,10 +18,13 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.thucydides.core.annotations.Step;
 
+//Clase que implementa tareas
 public class fillRegisterPage implements Task{
 	
-private RegisterNewToursModel registerNewToursModel;
+	//Variable privada tipo RegisterNewToursModel
+	private RegisterNewToursModel registerNewToursModel;
 	
+	//Constructor.
 	public fillRegisterPage(RegisterNewToursModel registerNewToursModel) {
 		this.registerNewToursModel= registerNewToursModel;
 	}
@@ -25,7 +33,7 @@ private RegisterNewToursModel registerNewToursModel;
 	@Step("{0} fill the register NewTours Page")	
 	public <T extends Actor> void performAs(T actor) 
 	{		
-		//Open, click, Hit, Enter
+		//En estas interacciones, se inresan los valores en la pagina de registro y se da clic en el boton submit para registrarse.
 		actor.attemptsTo(
 		Enter.theValue(registerNewToursModel.getFirtsName()).into(RegisterNewToursComponents.FIRSTNAME),
 		Enter.theValue(registerNewToursModel.getLastName()).into(RegisterNewToursComponents.LASTNAME),

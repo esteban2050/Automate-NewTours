@@ -14,8 +14,10 @@ import net.thucydides.core.annotations.Step;
 
 public class OpenTheBrowser implements Task{
 		
+	//Variable privada tipo PageObject
 	private PageObject page;
 	
+	//Constructor
 	public OpenTheBrowser(PageObject page) {
 	this.page = page;	
 	}
@@ -24,11 +26,13 @@ public class OpenTheBrowser implements Task{
 	@Step("{0} opens the browser on NewTours Page")
 	public <T extends Actor> void performAs(T actor) 
 	{
+		//En estos metodos se abre la pagina de store.demoQA y se valida que cargue
 		actor.attemptsTo(Open.browserOn(page));
 		actor.should(seeThat(IsVisibleTheHomePage.isVisible(), hasItem("User Name:")).orComplainWith(NoInternetConection.class, 
 				 getNoInternetConectionMessage()));
-}
+	}	
 
+	//Metodo que retorna el mensaje de no internet.
 	public String getNoInternetConectionMessage() {
 		return String.format(NoInternetConection.NO_INTERNET_CONECTION_MESSAGE);
 	}
